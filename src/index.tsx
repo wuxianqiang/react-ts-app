@@ -5,10 +5,25 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import store from './store'
+import { Route, Link, Redirect, Switch } from 'react-router-dom'
+import { ConnectedRouter } from 'connected-react-router'
+import history from './history'
+import Counter from './components/Counter'
+import Detail from './components/Detail'
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ConnectedRouter history={history}>
+      <ul>
+        <li><Link to="/counter">Counter</Link></li>
+        <li><Link to="/detail">Detail</Link></li>
+      </ul>
+      <Switch>
+        <Route path="/counter" component={Counter}></Route>
+        <Route path="/detail" component={Detail}></Route>
+        <Redirect to="/counter"></Redirect>
+      </Switch>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
 );
