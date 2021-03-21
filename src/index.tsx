@@ -10,19 +10,24 @@ import { ConnectedRouter } from 'connected-react-router'
 import history from './history'
 import Counter from './components/Counter'
 import Detail from './components/Detail'
+import NavBar from './components/NavBar'
+import User from './components/User'
+import 'antd/dist/antd.css'
+import { Layout } from 'antd'
+let { Content } = Layout
 
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <ul>
-        <li><Link to="/counter">Counter</Link></li>
-        <li><Link to="/detail">Detail</Link></li>
-      </ul>
-      <Switch>
-        <Route path="/counter" component={Counter}></Route>
-        <Route path="/detail" component={Detail}></Route>
-        <Redirect to="/counter"></Redirect>
-      </Switch>
+      <NavBar></NavBar>
+      <Content>
+        <Switch>
+          <Route path="/counter" component={Counter}></Route>
+          <Route path="/detail" component={Detail}></Route>
+          <Route path="/user" component={User}></Route>
+          <Redirect to="/counter"></Redirect>
+        </Switch>
+      </Content>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
