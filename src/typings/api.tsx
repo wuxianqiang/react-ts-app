@@ -8,3 +8,7 @@ export interface UserListResponse {
   data: Array<User>
 }
 
+export interface UserAddResponse {
+  code: number;
+  data: User
+}

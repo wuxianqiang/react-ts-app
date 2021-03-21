@@ -3,6 +3,7 @@ import { Layout, Menu } from 'antd'
 import { Link, withRouter, RouteComponentProps, Route } from 'react-router-dom'
 import UserAdd from './UserAdd'
 import UserList from './UserList'
+import UserDetail from './UserDetail'
 
 let { Sider, Content } = Layout
 type Props = RouteComponentProps
@@ -23,6 +24,7 @@ class NavBar extends React.Component<Props> {
         <Content style={{padding: '20px'}}>
           <Route path="/user/add" component={UserAdd}></Route>
           <Route path="/user/list" component={UserList}></Route>
+          <Route path="/user/detail/:id" component={UserDetail}></Route>
         </Content>
       </Layout>
     )
